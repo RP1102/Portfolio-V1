@@ -1,0 +1,61 @@
+.content{
+    margin-left: 20px;
+    padding: 20px;
+    background: var(--themeContent);
+    box-shadow: var(--themeShadow);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    width: fit-content;
+}
+.content > h1{
+    width: fit-content;
+    font-size: 3rem; 
+    margin-bottom: 30px; 
+}
+
+.content > p{z-index: 1; width: 600px; font-size: 1rem;}
+
+#about{
+    height: 750px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    padding-bottom: 60px;
+    transition: color 0.3s ease-in-out;
+
+}
+p + ul{
+    padding-left: 40px; 
+    padding-top: 20px; 
+    list-style-image: url(../testAssets/bulletArrow.svg);
+}
+li{
+    width: fit-content;
+    line-height: 1.5;
+    transition: transform 0.3s ease-in-out;
+
+}
+li:hover{transform: translateX(5px);}
+
+
+p > a{
+    text-decoration: none;
+    color: var(--color);
+    display: inline-block;
+}
+
+p > a::after{
+    content: '';
+    width: 0px;
+    height: 1px;
+    display: block;
+    background: var(--color);
+    transition: 300ms;
+
+}
+
+p > a:hover::after{
+    width: 100%;
+}
+

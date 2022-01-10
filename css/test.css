@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: none;
+    transition: all 0.5s ease;
+}
+:root{
+    --color:#32c267;
+    --themeContent:rgba( 255, 255, 255, 0.25 );
+    --themeShadow:0 8px 32px 0 rgba( 99, 99, 99, 0.37 );
+    --gadgetColor:rgb( 255, 255, 255);
+}
+body{
+    
+    font-family: 'Azeret Mono', monospace;
+    /* padding: 20px; */
+    height: 100%;
+    width: 100%;
+    background-color: #f7f7f7;
+    transition: all 1s ease;
+}
+
+#home{
+    z-index: 1;
+    height: 100vh;
+}
+
+#homeWave{
+    position: absolute;
+    /* bottom: 0%; */
+    top: 60%;
+}
+.waves path{fill: var(--color); overflow: hidden;}
+
+.topBar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    z-index: 1;
+    opacity: 100%;
+
+
+}
+.topBar a{
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    transition: 0.2s ease-in-out;
+    align-items: center;
+    padding: 0 20px;
+}
+.topBar a:hover{  
+    color: var(--color);
+}
+
+#logo{
+    font-family: 'Righteous', cursive;
+    font-size: 4rem;
+}
+span > span{
+    color: var(--color);
+
+}
+
+.colors-container{
+    position: absolute;
+    width: 60px;
+    height: 200px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 24px;
+    z-index: 10;
+    
+}
+.colors-container > button{
+    cursor: pointer;
+    margin-left: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 24px;
+    border: 3px solid var(--gadgetColor);
+    box-shadow: var(--themeShadow);
+    transition: all 0.3s ease-in-out;
+
+}
+#green{background-color: #32c267;}
+#orange{background-color: #ff8b00;}
+#blue{background-color: #59a5ff;}
+
+.colors-container > button:hover{transform: scale(1.2);}
+.colors-container > button:active{transform: scale(0.98);}
+
+
+
+.progress-container{
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translate(-0%,-50%);
+    width: 20px;
+    height: 200px;
+    background: var(--gadgetColor);
+    box-shadow: var(--themeShadow);
+    
+    backdrop-filter: blur( 4px );
+    border-radius: 24px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    animation: 1s ease-out 0s 1 slideFromRight;
+}
+
+
+.progress-bar{
+    margin-top: 5px;
+    width: 10px;
+    height: 0;
+    max-height: 190px;
+    background-color: var(--color);
+    border-radius: 24px;
+    transition: background-color 0.5s ease;
+}
+
+@keyframes slideFromLeft {
+    0%{transform: translateX(-100%);}
+    100%{transform: translateX(0%);}
+    
+}
+
+#mainText{
+    box-sizing: border-box;
+    min-width: 455px;
+    height: 105px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+}
+#titre{
+    position: relative;
+    animation: slideUp 1.7s ease forwards;
+    font-size: 3rem;
+    transition: 0.3s;
+
+}
+
+@keyframes slideUp {
+    0%{
+        transform: translateY(200%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+.titles:after { /* code pour le souligné vert */
+    display:block;
+    content: '';
+    border-bottom: solid 5px var(--color);  
+    transform: scaleX(0);  
+    transition: transform 250ms ease-in-out;
+    z-index: 10;
+}
+.titles:hover:after { transform: scaleX(1); }
+
+.content:hover .titles:after{ transform: scaleX(1); }
+
+div > p{
+    font-size: 2rem;
+}
+p > span{
+    color: var(--color);
+    
+}
+
+/*
+
+HAND ANIMATION 
+
+
+.hand{
+    animation: waving 2.5s infinite;
+    transform-origin: 70% 70%;
+}
+@keyframes waving {
+    0% { transform: rotate( 0.0deg) }
+    15% { transform: rotate(14.0deg) }   The following five values can be played with to make the waving more or less extreme 
+    30% { transform: rotate(-8.0deg) }
+    40% { transform: rotate(14.0deg) }
+    50% { transform: rotate(-4.0deg) }
+    60% { transform: rotate(10.0deg) }
+    70% { transform: rotate( 0.0deg) }   Reset for the last half to pause 
+   100% { transform: rotate( 0.0deg) }
+}
+*/
+
+
+/* span > span{
+    animation: clignote 3s infinite step-end;
+
+}
+@keyframes clignote {
+    0%{color: inherit;}
+    50%{color: #32c267;}
+    100%{color: inherit;}
+
+} */
